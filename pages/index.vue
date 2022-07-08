@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <AddPost @add-post="addPost" />
+    <AddPost />
     <CBox
       v-bind="mainStyles[colorMode]"
       d="flex"

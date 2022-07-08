@@ -1,6 +1,16 @@
 <template>
-  <c-textarea placeholder="Here is a sample placeholder" />
-  
+  <form ref="form" class="form-group">
+    <c-form-control>
+      <c-form-label for="add-post">New Post</c-form-label>
+      <c-textarea
+        focus-border-color="lime"
+        v-model="text"
+        placeholder="What's on your mind?"
+      />
+      <c-button variant-color="green" @click="onSubmit">Submit</c-button>
+      <div>{{ text }}</div>
+    </c-form-control>
+  </form>
 </template>
 
 <script>
@@ -9,23 +19,20 @@ export default {
   data() {
     return {
       text: "",
-      day: "",
     };
   },
   methods: {
     onSubmit(e) {
       e.preventDefault();
       if (!this.text) {
-        alert("Please add a post");
+        alert("Please enter some text");
         return;
       }
-      const newPost = {
-        text: this.text,
-        day: this.day,
-      };
-      this.$emit("add-post", newPost);
-      this.text = "";
-      this.day = "";
+
+      console.log(this.text);
+      this.$emit("add-post", this.text);
+      this.text = ""; // Shows the typed text for debugging purposes
+      this.$refs.form.reset();
     },
   },
 };
