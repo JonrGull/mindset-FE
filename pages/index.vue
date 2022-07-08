@@ -8,9 +8,7 @@
       flex-dir="column"
       justify-content="center"
     >
-      <CHeading text-align="center" mb="4">
-        ⚡️ Hello chakra-ui/vue
-      </CHeading>
+      <CHeading text-align="center" mb="4"> ⚡️ Hello chakra-ui/vue </CHeading>
       <CFlex justify="center" direction="column" align="center">
         <CBox mb="3">
           <CIconButton
@@ -21,11 +19,7 @@
             } mode`"
             @click="toggleColorMode"
           />
-          <CButton
-            left-icon="info"
-            variant-color="blue"
-            @click="showToast"
-          >
+          <CButton left-icon="info" variant-color="blue" @click="showToast">
             Show Toast
           </CButton>
         </CBox>
@@ -69,9 +63,7 @@
             <CModalHeader>Are you sure?</CModalHeader>
             <CModalBody>Deleting user cannot be undone</CModalBody>
             <CModalFooter>
-              <CButton @click="showModal = false">
-                Cancel
-              </CButton>
+              <CButton @click="showModal = false"> Cancel </CButton>
               <CButton
                 margin-left="3"
                 variant-color="red"
