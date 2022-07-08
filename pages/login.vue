@@ -1,29 +1,35 @@
 <template>
-  <c-box
-    m="auto"
-    maxW="sm"
-    border-width="1px"
-    rounded="lg"
-    overflow="hidden"
-    p="8"
-    h="300px"
-    bg="pink"
-    mt="10"
-  >
-    <c-stack spacing="4">
-      <c-input placeholder="username" />
-      <c-input placeholder="password" />
-    </c-stack>
-    <flex>
-      <c-button variant-color="blue" size="md" mt="10"> Login </c-button>
-      <c-button variant-color="blue" size="md" mt="10">Register</c-button>
-    </flex>
+  <c-box backgroundImage="url('../static/bg.jpg')">
+    <c-box
+      m="auto"
+      maxW="sm"
+      border-width="1px"
+      rounded="lg"
+      overflow="hidden"
+      p="8"
+      mt="10"
+    >
+      <c-image
+        m="auto"
+        h="180px"
+        w="200px"
+        :src="require('@/assets/../static/login.png')"
+      />
+      <c-stack spacing="4">
+        <c-input placeholder="username" />
+        <c-input placeholder="password" />
+      </c-stack>
+      <flex>
+        <c-button variant-color="blue" size="md" mt="10"> Login </c-button>
+        <c-button variant-color="blue" size="md" mt="10">Register</c-button>
+      </flex>
+    </c-box>
   </c-box>
 </template>
 
 <script>
 export default {
-  name: "Example",
+  name: "Login",
   data() {
     return {
       property: {
