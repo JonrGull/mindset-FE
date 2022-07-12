@@ -1,5 +1,7 @@
 <template>
-  <div class="container">WELCOMEEEEEEEEEEEEEE</div>
+  <flex>
+    <c-button @click="signOut">SIGNOUT</c-button>
+  </flex>
 </template>
 
 <script lang="js">
