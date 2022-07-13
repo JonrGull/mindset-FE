@@ -18,6 +18,7 @@
 
 <script>
 import PostContainer from "./PostContainer.vue";
+
 export default {
   name: "AddPost",
   components: {
@@ -32,6 +33,7 @@ export default {
       createdAt: "",
     };
   },
+
   methods: {
     onSubmit(e) {
       e.preventDefault();
@@ -40,17 +42,15 @@ export default {
         return;
       }
 
-      console.log(this.posts);
-      this.$emit("add-post", {
-        id: this.id,
-        text: this.text,
-        createdAt: this.createdAt,
-      });
-      this.posts.push({
+      const newPost = {
         id: this.id,
         text: this.text,
         createdAt: new Date().toLocaleString(),
-      });
+      };
+
+      this.$emit("add-post", newPost);
+      this.posts.push(newPost);
+      console.log(`posts`, this.posts);
       this.text = "";
       this.id += 1;
       this.$refs.form.reset();
