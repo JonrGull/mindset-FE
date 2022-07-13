@@ -1,5 +1,4 @@
 export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "mindset-FE",
     htmlAttrs: {
@@ -49,7 +48,11 @@ export default {
           appId: process.env.appId,
         },
         services: {
-          auth: true, // Just as example. Can be any other service.
+          auth: {
+            initialize: {
+              onAuthStateChangedMutation: "ON_AUTH_STATE_CHANGED_MUTATION",
+            },
+          }, // Just as example. Can be any other service.
         },
       },
     ],
