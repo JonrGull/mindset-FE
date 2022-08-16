@@ -1,26 +1,39 @@
 <template>
-  <form ref="form" class="form-group">
-    <c-form-control>
-      <c-form-label for="add-post">New Post</c-form-label>
-      <c-textarea
-        focus-border-color="lime"
-        v-model="text"
-        placeholder="What's on your mind?"
-      />
-      <c-button variant-color="green" @click="onSubmit">Submit</c-button>
-      <div>{{ text }}</div>
-    </c-form-control>
-  </form>
+  <div>
+    <form ref="form" class="form-group">
+      <c-form-control>
+        <c-form-label for="add-post">New Post</c-form-label>
+        <c-textarea
+          focus-border-color="lime"
+          v-model="text"
+          placeholder="What's on your mind?"
+        />
+        <c-button variant-color="green" @click="onSubmit">Submit</c-button>
+        <div>{{ text }}</div>
+      </c-form-control>
+    </form>
+    <PostContainer :posts="posts" />
+  </div>
 </template>
 
 <script>
+import PostContainer from "./PostContainer.vue";
+
 export default {
   name: "AddPost",
+  components: {
+    PostContainer,
+  },
+
   data() {
     return {
+      posts: [],
+      id: 0,
       text: "",
+      createdAt: "",
     };
   },
+
   methods: {
     onSubmit(e) {
       e.preventDefault();
@@ -29,9 +42,17 @@ export default {
         return;
       }
 
-      console.log(this.text);
-      this.$emit("add-post", this.text);
-      this.text = ""; // Shows the typed text for debugging purposes
+      const newPost = {
+        id: this.id,
+        text: this.text,
+        createdAt: new Date().toLocaleString(),
+      };
+
+      this.$emit("add-post", newPost);
+      this.posts.push(newPost);
+      console.log(`posts`, this.posts);
+      this.text = "";
+      this.id += 1;
       this.$refs.form.reset();
     },
   },
