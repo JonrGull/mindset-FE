@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="posts-container">
-      <div v-if="posts.length > 0">No posts</div>
-
-      <div v-else="post in posts.slice().reverse()" :key="post.id">
-        {{ post.text }}
-        {{ post.createdAt }}
-        {{ console.log(`posts`, post) }}
+      <div v-if="posts.length === 0">No posts</div>
+      <div v-if="posts.length !== 0">
+        <div v-for="post in posts.slice().reverse()" :key="post.id">
+          {{ post.text }}
+          {{ post.createdAt }}
+        </div>
       </div>
     </div>
   </div>
@@ -14,8 +14,10 @@
 
 <script>
 export default {
-  name: "PostsContainer",
-  props: ["posts"],
+  name: "PostContainer",
+  props: {
+    posts: Array,
+  },
 };
 </script>
 

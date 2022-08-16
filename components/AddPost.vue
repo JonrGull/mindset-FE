@@ -12,7 +12,7 @@
         <div>{{ text }}</div>
       </c-form-control>
     </form>
-    <PostContainer posts="{posts}" />
+    <PostContainer :posts="posts" />
   </div>
 </template>
 

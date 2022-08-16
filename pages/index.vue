@@ -1,18 +1,23 @@
 <template>
-  <flex>
+  <div>
     <c-button @click="signOut">SIGNOUT</c-button>
-  </flex>
+    <AddPost />
+  </div>
 </template>
 
 <script lang="js">
+import AddPost from '../components/AddPost.vue';
 
 export default {
   middleware: 'auth',
-methods: {
+  components: {
+    AddPost,
+     },
+  methods: {
   signOut() {
     this.$fire.auth.signOut();
     window.location = ('/login')
   }
-}
+},
 }
 </script>
